@@ -1,6 +1,7 @@
 import Navbar from "@/app/_components/Navbar";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -28,7 +29,10 @@ export default function RootLayout({
       <body style={{ margin: 0, padding: 0, backgroundColor: "white", fontFamily: "Arial, sans-serif" }}>
         <Navbar />
         <main style={{ padding: "2rem", maxWidth: "1200px", margin: "0 auto" }}>
-          {children}
+          <Suspense>
+            {children}
+          </Suspense>
+
         </main>
       </body>
     </html>

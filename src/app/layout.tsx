@@ -1,3 +1,4 @@
+import Navbar from "@/app/_components/Navbar";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -23,11 +24,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en">
+      <body style={{ margin: 0, padding: 0, backgroundColor: "white", fontFamily: "Arial, sans-serif" }}>
+        <Navbar />
+        <main style={{ padding: "2rem", maxWidth: "1200px", margin: "0 auto" }}>
+          {children}
+        </main>
+      </body>
     </html>
   );
 }
